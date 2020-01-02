@@ -11,7 +11,7 @@ export class TokenService {
   constructor(private _http: HttpClient) {}
 
   getToken(userData: UserData) {
-    const getTokenUrl = 'http://localhost:8080/oauth/token';
+    const getTokenUrl = 'https://angular-backend-demo.herokuapp.com/oauth/token';
 
     const getTokenParams: HttpParams = new HttpParams()
      .append('grant_type', 'password')
@@ -19,7 +19,8 @@ export class TokenService {
      .append('password', userData.password);
 
     const getTokenHeaders: HttpHeaders = new HttpHeaders()
-      .append('Authorization', 'Basic ' + btoa('client:secret'));
+      .append('Authorization', 'Basic ' + btoa('client:secret'))
+      .append('Access-Control-Allow-Origin', '*')
 
     return this._http.post<TokenData>(getTokenUrl, {
       withCredentials: true
