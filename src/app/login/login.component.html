@@ -1,0 +1,42 @@
+<h1>Log In</h1>
+
+<form class = "loginForm" (submit)="login()">
+		
+		<input class = "input"
+			required
+			placeholder = "Enter Username"
+			[(ngModel)] = "userData.username"
+			#name = "ngModel"
+			name = "name"
+			type = "text"
+			(input)="error=false"/>
+			
+		<div class = "error" *ngIf = "name.touched && name.errors != null">
+			<div *ngIf ="name.errors.required">
+				<label>ERROR: Required Field</label>
+			</div>
+		</div>
+		
+		<input class = "input"
+			required
+			placeholder = "Enter Password"
+			[(ngModel)] = "userData.password"
+			#pass = "ngModel"
+			name = "pass"
+			type = "text"
+			(input)="error=false"/>
+			
+		<div class = "error" *ngIf = "pass.touched && pass.errors != null">
+			<div *ngIf ="pass.errors.required">
+				<label>ERROR: Required Field</label>
+			</div>
+		</div>
+		
+		<div class = "error" *ngIf="error">
+			<label>ERROR: invalid info</label>
+		</div>
+		<br /> 
+		
+		<button class = "submitBtn">Submit</button>
+
+</form>

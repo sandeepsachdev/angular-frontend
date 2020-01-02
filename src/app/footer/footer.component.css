@@ -1,0 +1,16 @@
+:host { 
+  display:block;
+  height: 3em;
+  width: 100%;
+  position: fixed;
+  background-color: lightgrey;
+  bottom:0px;
+}
+
+.copyText {
+  padding-top: 2.7em;
+  padding-right: 1em;
+  font-size: .5em;
+  opacity: .3;
+  float: right;
+}
