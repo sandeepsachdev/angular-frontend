@@ -19,8 +19,7 @@ export class TokenService {
      .append('password', userData.password);
 
     const getTokenHeaders: HttpHeaders = new HttpHeaders()
-      .append('Authorization', 'Basic ' + btoa('client:secret'))
-      .append('Access-Control-Allow-Origin', '*')
+      .append('Authorization', 'Basic ' + btoa('client:secret'));
 
     return this._http.post<TokenData>(getTokenUrl, {
       withCredentials: true
